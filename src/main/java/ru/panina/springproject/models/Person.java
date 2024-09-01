@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 public class Person {
+    private int id;
 
     @NotEmpty(message = "Name shouldn't be empty")
     @Size(min = 2)
@@ -19,6 +20,14 @@ public class Person {
     public Person(String name, int yearOfBirth) {
         this.name = name;
         this.yearOfBirth = yearOfBirth;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

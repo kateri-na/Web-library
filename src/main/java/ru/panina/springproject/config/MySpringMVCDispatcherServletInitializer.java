@@ -1,4 +1,5 @@
-package ru.alishev.springcourse.config;
+package ru.panina.springproject.config;
+
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import org.springframework.web.filter.HiddenHttpMethodFilter;

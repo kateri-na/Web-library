@@ -1,4 +1,4 @@
-package ru.alishev.springcourse.config;
+package ru.panina.springproject.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -20,7 +20,7 @@ import javax.sql.DataSource;
 import java.util.Objects;
 
 @Configuration
-@ComponentScan("ru.alishev.springcourse")
+@ComponentScan("ru.panina.springproject")
 @EnableWebMvc
 @PropertySource("classpath:database.properties")
 public class SpringConfig implements WebMvcConfigurer {

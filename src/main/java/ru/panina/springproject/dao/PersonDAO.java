@@ -20,4 +20,8 @@ public class PersonDAO {
     public List<Person> index(){
         return jdbcTemplate.query("select * from person", new BeanPropertyRowMapper<Person>(Person.class));
     }
+    public void save(Person person){
+        jdbcTemplate.update("insert into person(name, yearOfBirth) values(?, ?)",
+                person.getName(), person.getYearOfBirth());
+    }
 }

@@ -13,7 +13,7 @@
 
     <label for="year">Введите год рождения: </label>
     <input type="text" th:field="*{yearOfBirth}" id="year"/>
-    <div style="color:red" th:if="${#fields.hasErrors('yearOfBirth')}" th:errors="*{yearOfBirth}">Age error</div>
+    <div style="color:red" th:if="${#fields.hasErrors('yearOfBirth')}" th:errors="*{getYearOfBirth}">Age error</div>
     <br/>
 
     <input type="submit" value="Create!"/>

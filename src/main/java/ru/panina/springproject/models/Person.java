@@ -7,11 +7,10 @@ import jakarta.validation.constraints.Size;
 public class Person {
     private int id;
 
-    @NotEmpty(message = "Name shouldn't be empty")
-    @Size(min = 2)
+    @NotEmpty(message = "Поле имени не может быть пустым")
+    @Size(min = 2, message = "Имя должно содержать хотя бы 2 символа")
     private String name;
 
-    @NotEmpty(message = "Year of birth should not be empty")
     @Max(value = 2023, message = "Person should be at least 1 year old")
     private int yearOfBirth;
 

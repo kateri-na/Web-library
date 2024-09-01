@@ -14,6 +14,8 @@ public class Person {
     @Max(value = 2023, message = "Person should be at least 1 year old")
     private int yearOfBirth;
 
+    public Person() {}
+
     public Person(String name, int yearOfBirth) {
         this.name = name;
         this.yearOfBirth = yearOfBirth;

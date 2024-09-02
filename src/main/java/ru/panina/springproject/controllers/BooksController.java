@@ -52,4 +52,14 @@ public class BooksController {
         bookDAO.update(id, book);
         return "redirect:/books";
     }
+    @GetMapping("/{id}")
+    public String show(@PathVariable("id") int id, Model model){
+        model.addAttribute("book", bookDAO.show(id));
+        return "books/show";
+    }
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") int id) {
+        bookDAO.delete(id);
+        return "redirect:/books";
+    }
 }

@@ -4,6 +4,8 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotEmpty;
 
 public class Book {
+    private int id;
+    private int personId;
 
     @NotEmpty(message = "Title shouldn't be empty")
     private String title;
@@ -11,14 +13,33 @@ public class Book {
     @NotEmpty(message = "The book should have an author")
     private String author;
 
-    @NotEmpty(message = "Publish year couldn't be empty")
     @Max(value = 2024, message = "The book can't be from future")
-    private String publishYear;
+    private int year;
 
-    public Book(String title, String author, String publishYear) {
+    public Book() {}
+
+    public Book(int id, int personId, String title, String author, int year) {
+        this.id = id;
+        this.personId = personId;
         this.title = title;
         this.author = author;
-        this.publishYear = publishYear;
+        this.year = year;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(int personId) {
+        this.personId = personId;
     }
 
     public String getTitle() {
@@ -37,11 +58,11 @@ public class Book {
         this.author = author;
     }
 
-    public String getPublishYear() {
-        return publishYear;
+    public int getYear() {
+        return year;
     }
 
-    public void setPublishYear(String publishYear) {
-        this.publishYear = publishYear;
+    public void setYear(int year) {
+        this.year = year;
     }
 }

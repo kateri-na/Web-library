@@ -6,7 +6,7 @@ import ru.panina.springproject.models.Book;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class BookMapper implements RowMapper {
+public class BookMapper implements RowMapper<Book> {
     @Override
     public Book mapRow(ResultSet rs, int rowNum) throws SQLException {
         Book book = new Book();

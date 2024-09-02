@@ -32,4 +32,7 @@ public class PersonDAO {
         jdbcTemplate.update("update person set name = ?, year = ? where id = ?",
                 person.getName(), person.getYear(), id);
     }
+    public void delete(int id){
+        jdbcTemplate.update("delete from person where id = ?", id);
+    }
 }

@@ -21,7 +21,7 @@ public class PersonDAO {
         return jdbcTemplate.query("select * from person", new BeanPropertyRowMapper<Person>(Person.class));
     }
     public void save(Person person){
-        jdbcTemplate.update("insert into person(name, yearOfBirth) values(?, ?)",
-                person.getName(), person.getYearOfBirth());
+        jdbcTemplate.update("insert into person(name, year) values(?, ?)",
+                person.getName(), person.getYear());
     }
 }

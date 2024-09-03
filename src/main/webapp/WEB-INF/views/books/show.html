@@ -6,7 +6,16 @@
 </head>
 <body>
 <p th:text="${book.getTitle()} + ', ' + ${book.getAuthor()} + ', ' + ${book.getYear()}">Info</p>
+<p th:if="${book.getPersonId() == 0}">Эта книга свободна. Кому назначить её?</p>
 
+<form th:if="${book.getPersonId() == 0}" th:method="PATCH" th:action="@{/books/{id}/appoint(id = ${book.getId()})}" th:object="${book}">
+    <label for="person">Выберите человека</label>
+    <select th:object="${person}" th:field="*{id}" id = "person">
+        <option th:each="person : ${people}" th:value="${person.getId()}"
+                th:text="${person.getName()}"></option>
+    </select>
+    <input type="submit" value="Назначить книгу">
+</form>
 <br/>
 <hr/>
 <form th:method = "GET" th:action="@{/books/{id}/edit(id = ${book.getId()})}">

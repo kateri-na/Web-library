@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import ru.panina.springproject.models.Book;
+import ru.panina.springproject.models.Person;
 
 import java.util.List;
 
@@ -35,5 +36,8 @@ public class BookDAO {
     }
     public void delete(int id){
         jdbcTemplate.update("delete from book where id = ?", id);
+    }
+    public void appoint(Person person, int id){
+        jdbcTemplate.update("update book set person_id = ? where id =?", person.getId(), id);
     }
 }

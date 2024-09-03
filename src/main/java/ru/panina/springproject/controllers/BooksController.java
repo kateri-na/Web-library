@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.panina.springproject.dao.BookDAO;
 import ru.panina.springproject.dao.PersonDAO;
 import ru.panina.springproject.models.Book;
+import ru.panina.springproject.models.Person;
 
 @Controller
 @RequestMapping("/books")
@@ -53,13 +54,19 @@ public class BooksController {
         return "redirect:/books";
     }
     @GetMapping("/{id}")
-    public String show(@PathVariable("id") int id, Model model){
+    public String show(@PathVariable("id") int id, Model model, @ModelAttribute("person") Person person){
         model.addAttribute("book", bookDAO.show(id));
+        model.addAttribute("people", personDAO.index());
         return "books/show";
     }
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") int id) {
         bookDAO.delete(id);
         return "redirect:/books";
+    }
+    @PatchMapping("/{id}/appoint")
+    public String appoint(@PathVariable("id") int id, @ModelAttribute Person person, @ModelAttribute Book book) {
+        bookDAO.appoint(person, id);
+        return "redirect:/books/{id}";
     }
 }

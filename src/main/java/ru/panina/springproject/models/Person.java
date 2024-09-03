@@ -1,16 +1,16 @@
 package ru.panina.springproject.models;
 
 import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
 
 public class Person {
     private int id;
 
-    @NotEmpty(message = "Поле имени не может быть пустым")
-    @Size(min = 2, message = "Имя должно содержать хотя бы 2 символа")
+    @NotEmpty(message = "Укажите имя пользователя")
     private String name;
 
+    @Min(value = 1900, message = "Проверьте год рождения ещё раз")
     @Max(value = 2023, message = "Пользователю должен быть хотя бы 1 год")
     private int year;
 

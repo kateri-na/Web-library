@@ -1,19 +1,21 @@
 package ru.panina.springproject.models;
 
 import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 
 public class Book {
     private int id;
     private int personId;
 
-    @NotEmpty(message = "Title shouldn't be empty")
+    @NotEmpty(message = "У книги должно быть название")
     private String title;
 
-    @NotEmpty(message = "The book should have an author")
+    @NotEmpty(message = "У книги должен быть автор")
     private String author;
 
-    @Max(value = 2024, message = "The book can't be from future")
+    @Min(value = 1450, message = "Впервые книга была напечатана в 1450г")
+    @Max(value = 2024, message = "Книга не может быть издана в будущем")
     private int year;
 
     public Book() {}

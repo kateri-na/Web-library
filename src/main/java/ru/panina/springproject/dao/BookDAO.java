@@ -40,4 +40,7 @@ public class BookDAO {
     public void appoint(Person person, int id){
         jdbcTemplate.update("update book set person_id = ? where id =?", person.getId(), id);
     }
+    public void free(int id){
+        jdbcTemplate.update("update book set person_id = null where id = ?", id);
+    }
 }
